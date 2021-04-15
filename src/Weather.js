@@ -6,7 +6,7 @@ export default function Weather() {
   let weatherData = {
     city: "Berlin",
     temperature: 17,
-    date: "Monday, 29 March 15:19",
+    date: "Wed, 31 March 22:22",
     description: "scattered clouds",
     imgUrl: "https://openweathermap.org/img/wn/04n@2x.png",
     humidity: 42,
