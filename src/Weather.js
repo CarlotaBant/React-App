@@ -239,7 +239,7 @@ export default function Weather() {
       <p className="byLota">
         <a
           className="linkLotaOpeSource"
-          href="https://github.com/CarlotaBant/Weather-App"
+          href="https://github.com/CarlotaBant/React-App"
           target="blank"
           rel="nonreferrer"
         >
