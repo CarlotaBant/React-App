@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 import "./App.css";
 
 export default function Weather() {
-  let weatherData = {
-    city: "Berlin",
-    temperature: 17,
-    date: "Wed, 31 March 23:23",
-    description: "scattered clouds",
-    imgUrl: "https://openweathermap.org/img/wn/04n@2x.png",
-    humidity: 42,
-    wind: 8
-  };
+const [weatherData, setWeatherData] = useState({ ready: false });
+function handleResponse (response) {
+  console.log(response.data);
+  setWeatherData({
+      ready: true,
+      coordinates: response.data.coord,
+      temperature: (Math.round(response.data.main.temp)),
+      max_temp: (Math.round(response.data.main.temp_max)),
+      min_temp: (Math.round(response.data.main.temp_min)),
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+      country: response.data.sys.country.toString().toLowerCase(), 
+      link: `https://lipis.github.io/flag-icon-css/flags/4x3/${response.data.sys.country.toString().toLowerCase()}.svg`      
+    });
+}
+console.log(weatherData.country)
+
+if(weatherData.ready) {
 
   return (
     <div className="Weather">
@@ -21,7 +35,7 @@ export default function Weather() {
             <div className="wrapper">
               <div className="row countryflag">
                 <img
-                  src="https://www.countryflags.io/de/shiny/64.png"
+                  src= {weatherData.link}
                   alt="DE flag"
                   title="DE flag"
                   id="flag"
@@ -31,7 +45,7 @@ export default function Weather() {
               <div className="row city">
                 <div className="Header">
       <h3 className="col" id="city-name">
-        Berlin
+        {weatherData.city}
       </h3>
     </div>
               </div>
@@ -39,7 +53,7 @@ export default function Weather() {
               <div className="row date">
                 <div className="date">
       <h6 className="c-date" id="full-date">
-        {weatherData.date}
+        Wed, 21 April 10:27
       </h6>
     </div>
               </div>
@@ -55,7 +69,7 @@ export default function Weather() {
                 </div>
                 <div className="col">
                   <h1 className="col c-temp" id="temperature">
-                    17
+                    {weatherData.temperature}
                   </h1>
                 </div>
                 <div className="col">
@@ -87,8 +101,8 @@ export default function Weather() {
                 <div className="column" id="parameters">
                   <ul className="parameters">
                     <li className="row param description">Today:</li>
-                    <li className="row param max">Min:</li>
                     <li className="row param max">Max:</li>
+                    <li className="row param max">Min:</li>
                     <li className="row param windSpeed">Wind speed:</li>
                     <li className="row param humidity">Humidity:</li>
                   </ul>
@@ -96,20 +110,20 @@ export default function Weather() {
 
                 <div className="column current-data">
                   <ul className="information">
-                    <li className="row info description" id="description">
-                      scattered clouds
-                    </li>
-                    <li className="row info c-max-min" id="min">
-                      17°
+                    <li className="text-capitalize row info description" id="description">
+                      {weatherData.description}
                     </li>
                     <li className="row info c-max-min" id="max">
-                      8°
+                      {weatherData.max_temp}°
+                    </li>
+                    <li className="row info c-min-min" id="min">
+                      {weatherData.min_temp}°
                     </li>
                     <li className="row info windSpeed" id="wind">
-                      8.23 km/h
+                      {weatherData.wind} km/h
                     </li>
                     <li className="row info humidity" id="hum">
-                      42%
+                      {weatherData.humidity}%
                     </li>
                   </ul>
                 </div>
@@ -254,4 +268,15 @@ export default function Weather() {
       </div>
     </div>
   );
+} else { 
+  const apiKey = "db9add1eea80b5993c21c76a9a79855d";
+  let city = "Paris";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+  console.log(apiUrl);
+
+  axios.get(apiUrl).then(handleResponse);
+
+
+  return "Loading...";
+}
 }
