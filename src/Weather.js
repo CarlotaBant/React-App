@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 
 import "./App.css";
 
-export default function Weather() {
+export default function Weather(props) {
 const [weatherData, setWeatherData] = useState({ ready: false });
 function handleResponse (response) {
   console.log(response.data);
@@ -17,6 +18,7 @@ function handleResponse (response) {
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
+      iconlink: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       wind: response.data.wind.speed,
       city: response.data.name,
       country: response.data.sys.country.toString().toLowerCase(), 
@@ -53,7 +55,7 @@ if(weatherData.ready) {
               <div className="row date">
                 <div className="date">
       <h6 className="c-date" id="full-date">
-        Wed, 21 April 10:27
+        <FormattedDate date={weatherData.date} />
       </h6>
     </div>
               </div>
@@ -61,7 +63,7 @@ if(weatherData.ready) {
               <div className="row icon-temp-unit-units">
                 <div className="col">
                   <img
-                    src="https://openweathermap.org/img/wn/04n@2x.png"
+                    src={weatherData.iconlink}
                     id="icon"
                     className="c-icon"
                     alt="Clear"
@@ -270,8 +272,7 @@ if(weatherData.ready) {
   );
 } else { 
   const apiKey = "db9add1eea80b5993c21c76a9a79855d";
-  let city = "Paris";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`
   console.log(apiUrl);
 
   axios.get(apiUrl).then(handleResponse);
