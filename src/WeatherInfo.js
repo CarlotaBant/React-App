@@ -18,7 +18,7 @@ export default function WeatherInfo(props) {
 
                 <div className="column current-data">
                   <ul className="information">
-                    <li className="text-capitalize row info description" id="description">
+                    <li className="capitalized-text row info description" id="description">
                       {props.data.description}
                     </li>
                     <li className="row info c-max-min" id="max">
