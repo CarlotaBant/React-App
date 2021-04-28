@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherInfo from "./WeatherInfo";
 import WeatherTemp from "./WeatherTemp";
-
 import Forecast from "./Forecast";
 import axios from "axios";
 
@@ -11,6 +10,8 @@ import "./App.css";
 export default function Weather(props) {
 const [weatherData, setWeatherData] = useState({ ready: false });
 const [city, setCity] = useState(props.defaultCity);
+const lookup = require('country-code-lookup')
+
 function handleResponse (response) {
   console.log(response.data);
   setWeatherData({
@@ -26,8 +27,8 @@ function handleResponse (response) {
       iconlink: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       wind: response.data.wind.speed,
       city: response.data.name,
-      flag: `${response.data.sys.country} flag`,
-      country: response.data.sys.country.toString().toLowerCase(), 
+      flag: `${response.data.name}, ${lookup.byIso(response.data.sys.country).country}`,
+      country: (lookup.byIso(response.data.sys.country)).country, 
       link: `https://lipis.github.io/flag-icon-css/flags/4x3/${response.data.sys.country.toString().toLowerCase()}.svg`      
     });
 }
