@@ -93,7 +93,8 @@ body {
 }
 
 canvas {
-  margin: 20px 30px;
+  margin: 0px;
+  color-interpolation-filters: whitesmoke;
 }
 
 #icon {
@@ -106,16 +107,17 @@ canvas {
   padding: 0px;
   padding-top: 18px;
   margin: 0px;
-  margin-right: 30px;
-  margin-left: -10px;
+  margin-right: 0px;
+  margin-left: 10px;
   text-align: right;
 }
 
 .c-unit {
   font-size: 22px;
   padding-top: 20px;
-  margin-left: -20px;
+  margin-left: 10px;
   width: fit-content;
+  float: left;
 }
 
 .units:defined {
@@ -177,11 +179,50 @@ ul {
   table-layout: auto;
 }
 
-.forecastbox {
+.forecastbox,
+.WeatherForecast {
+  text-align: center;
   margin: 0px;
   padding: 0px;
   display: block;
-  width: 90%;
+  width: 85%;
+}
+
+.WeatherForecast-day {
+  color: rgba(91, 80, 69, 0.7);
+  color: rgba(51, 34, 17, 0.7);
+  font-weight: bold;
+  text-align: center;
+  max-width: 90%;
+}
+
+.WeatherForecast-day {
+  background-size: auto;
+  text-align: center;
+}
+
+.WeatherForecast-temperatures {
+  color: rgba(51, 34, 17, 0.7);
+  text-align: center;
+  max-width: 90%;
+}
+
+.WeatherForecast-temperature-max {
+  color: rgba(51, 34, 17, 0.7);
+  text-align: center;
+  max-width: 90%;
+}
+
+.WeatherForecast-temperature-min {
+  color: rgba(51, 34, 17, 0.3);
+  text-align: center;
+  max-width: 90%;
+}
+
+.WeatherForecast-temperature-mid {
+  color: rgba(63, 108, 108, 0);
+  text-align: center;
+  max-width: 90%;
 }
 
 .forecast {

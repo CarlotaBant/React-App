@@ -16,8 +16,13 @@ let hours = props.date.getHours();
      minutes = `0${minutes}`
   }
    return (
-      <div>
+      
+              <div className="row date">
+                <div className="date">
+      <h6 className="c-date" id="full-date">
          {day}, {date} {month} {hours}:{minutes}
-      </div>
+      </h6>
+    </div>
+              </div>
    )
 }

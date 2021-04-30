@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import Flag from "./Flag";
+import City from "./City";
 import FormattedDate from "./FormattedDate";
 import WeatherInfo from "./WeatherInfo";
 import WeatherTemp from "./WeatherTemp";
-import Forecast from "./Forecast";
+import WeatherForecast from "./WeatherForecast";
+import Footer from "./Footer";
 import axios from "axios";
 
 import "./App.css";
@@ -13,7 +16,6 @@ const [city, setCity] = useState(props.defaultCity);
 const lookup = require('country-code-lookup')
 
 function handleResponse (response) {
-  console.log(response.data);
   setWeatherData({
       ready: true,
       coordinates: response.data.coord,
@@ -28,7 +30,7 @@ function handleResponse (response) {
       wind: response.data.wind.speed,
       city: response.data.name,
       flag: `${response.data.name}, ${lookup.byIso(response.data.sys.country).country}`,
-      country: (lookup.byIso(response.data.sys.country)).country, 
+      alt: `Flag of ${(lookup.byIso(response.data.sys.country)).country}`, 
       link: `https://lipis.github.io/flag-icon-css/flags/4x3/${response.data.sys.country.toString().toLowerCase()}.svg`      
     });
 }
@@ -46,7 +48,7 @@ function handleCityChange(event){
 }
 
 function search(){
-   const apiKey = "db9add1eea80b5993c21c76a9a79855d";
+  let apiKey = "db9add1eea80b5993c21c76a9a79855d";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
   axios.get(apiUrl).then(handleResponse);
 }
@@ -59,39 +61,14 @@ if(weatherData.ready) {
         <center>
           <div className="card">
             <div className="wrapper">
-              <div className="row countryflag">
-                <img
-                  src= {weatherData.link}
-                  alt= {weatherData.flag}
-                  title= {weatherData.flag}
-                  id="flag"
-                />
-              </div>
 
-              <div className="row city">
-                <div className="Header">
-      <h3 className="col" id="city-name">
-        {weatherData.city}
-      </h3>
-    </div>
-              </div>
-
-              <div className="row date">
-                <div className="date">
-      <h6 className="c-date" id="full-date">
-        <FormattedDate date={weatherData.date} />
-      </h6>
-    </div>
-              </div>
-
- <WeatherTemp code={weatherData.icon} celsius={weatherData.temperature} />
-
-
-      <WeatherInfo data={weatherData}/>
-              
+<Flag flag={weatherData.flag} alt={weatherData.alt} link={weatherData.link} />
+<City city={weatherData.city} />
+<FormattedDate date={weatherData.date} />
+<WeatherTemp code={weatherData.icon} celsius={weatherData.temperature} />
+<WeatherInfo data={weatherData}/>
               <br />
-
-      <Forecast />
+<WeatherForecast coordinates={weatherData.coordinates} />
 
               <div className="form-and-buttons">
                 <form onSubmit={handleSubmit}>
@@ -122,19 +99,7 @@ if(weatherData.ready) {
                 </form>
               </div>
 
-              <div>
-      <p className="byLota">
-        <a
-          className="linkLotaOpeSource"
-          href="https://github.com/CarlotaBant/React-App"
-          target="blank"
-          rel="nonreferrer"
-        >
-          Open-source code
-        </a>{" "}
-        by Lota Aya
-      </p>
-    </div>
+<Footer />
             </div>
           </div>
         </center>

@@ -4,34 +4,36 @@ import WeatherIcon from "./WeatherIcon";
 import "./App.css";
 
 export default function WeatherTemp(props) {
-   const [unit, setUnit] = useState("celsius");
+   const [unit, setUnit] = useState("°C");
+   const [temp, setTemp] = useState(Math.round(props.celsius))
 
 function showFahrenheit(event){
    event.preventDefault();
-   setUnit("fahrenheit");
+   setTemp(Math.round((props.celsius) * 9/5 + 32));
+   setUnit("°F");
 }
 
 function showCelsius(event){
       event.preventDefault();
-      setUnit("celsius");
+      setTemp(props.celsius);
+      setUnit("°C");
 }
 
-   if (unit === 'celsius') {
    return (
 <div className="row icon-temp-unit-units">
                 <div className="col">
-                  <WeatherIcon code={props.code} />
+                  <WeatherIcon code={props.code} size={52}/>
                 </div>
                
                 <div className="col">
                   <h1 className="col c-temp" id="temperature">
-                    {props.celsius}
+                    {temp}
                   </h1>
                 </div>
                 <div className="col">
                   {" "}
                   <h5 className="c-unit" id="active-unit">
-                    °C
+                    {unit}
                   </h5>
                 </div>
                 <div className="col units">
@@ -55,45 +57,4 @@ function showCelsius(event){
                 </div>
               </div>
    );
-   } else {
-      let fahrenheit = props.celsius * 9/5 + 32
-   return (
-<div className="row icon-temp-unit-units">
-                <div className="col">
-                  <WeatherIcon code={props.code} />
-                </div>
-               
-                <div className="col">
-                  <h1 className="col c-temp" id="temperature">
-                    {Math.round(fahrenheit)}
-                  </h1>
-                </div>
-                <div className="col">
-                  {" "}
-                  <h5 className="c-unit" id="active-unit">
-                    °F
-                  </h5>
-                </div>
-                <div className="col units">
-                  <a
-                    href="/"
-                    className="units unit celsiusLink"
-                    id="celsius-link"
-                    onClick={showCelsius}
-                  >
-                    {" "}°C{" "}
-                  </a>{" "}
-                  |{" "}
-                  <a
-                    href="/"
-                    className="units unit fahrenheitLink"
-                    id="fahrenheit-link"
-                    onClick={showFahrenheit}
-                  >
-                    °F
-                  </a>
-                </div>
-              </div>
-   );
-   }
-}
+   } 
