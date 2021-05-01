@@ -86,10 +86,11 @@ body {
 .icon-temp-unit-units {
   margin: 0px;
   padding: 0px;
-  padding-bottom: -40px;
-  padding-right: -15px;
+  padding-bottom: -30px;
+  padding-right: 0px;
   width: 440px;
   max-width: 90%;
+  text-align: center;
 }
 
 canvas {
@@ -108,14 +109,14 @@ canvas {
   padding-top: 18px;
   margin: 0px;
   margin-right: 0px;
-  margin-left: 10px;
-  text-align: right;
+  margin-left: 0px;
+  text-align: center;
 }
 
 .c-unit {
-  font-size: 22px;
+  font-size: 18px;
   padding-top: 20px;
-  margin-left: 10px;
+  margin-left: -25px;
   width: fit-content;
   float: left;
 }
@@ -267,7 +268,8 @@ ul {
 input {
   border-color: rgb(222, 200, 200);
   display: block;
-  margin: 15px;
+  margin: 0px;
+  margin-bottom: 10px;
   max-width: 80%;
   width: 260px;
 }
@@ -280,7 +282,7 @@ button {
   color: white;
   display: inline;
   padding: 3px;
-  margin: 15px 5px;
+  margin: 15px 0px;
   border-radius: 6px;
 }
 

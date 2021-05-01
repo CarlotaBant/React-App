@@ -47,7 +47,7 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${l
 console.log (apiUrl);
 axios.get(apiUrl).then(handleResponse);
 
-return "Loading forecast...";
+return null;
 
 } 
 }
