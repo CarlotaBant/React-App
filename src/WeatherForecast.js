@@ -22,17 +22,19 @@ if (loaded) {
 return (
  <div class-name="WeatherForecast">
    <div className="row WeatherForecast-box">
-     {forecast.map((dailyForecast, index) => {
-         if (index > 0 && index < 6) {
-           return (
-             <div className="col" key={index}>
-               <WeatherForecastDay data={dailyForecast} />
-             </div>
-           );
-         }
-       })}
+      <div className="col day-box">
+              <WeatherForecastDay data={forecast[1]} /></div>
+      <div className="col day-box">
+              <WeatherForecastDay data={forecast[2]} /></div>
+      <div className="col day-box">
+              <WeatherForecastDay data={forecast[3]} /></div>
+      <div className="col day-box">
+              <WeatherForecastDay data={forecast[4]} /></div>
+      <div className="col day-box">
+              <WeatherForecastDay data={forecast[5]} />
+      </div>
    </div>
-</div>
+ </div>
 );
 
 } else {
