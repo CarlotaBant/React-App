@@ -7,13 +7,16 @@ import WeatherTemp from "./WeatherTemp";
 import WeatherForecast from "./WeatherForecast";
 import Footer from "./Footer";
 import axios from "axios";
-
 import "./App.css";
+
+
 
 export default function Weather(props) {
 const [weatherData, setWeatherData] = useState({ ready: false });
 const [city, setCity] = useState(props.defaultCity);
 const lookup = require('country-code-lookup')
+
+
 
 function handleResponse (response) {
   setWeatherData({
@@ -38,7 +41,7 @@ function handleResponse (response) {
 
 function handleSubmit(event){
   event.preventDefault();
-  search();
+  searchByCity();
 //search for a city
 }
 
@@ -47,7 +50,7 @@ function handleCityChange(event){
   setCity(event.target.value);
 }
 
-function search(){
+function searchByCity(){
   let apiKey = "db9add1eea80b5993c21c76a9a79855d";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
   axios.get(apiUrl).then(handleResponse);
@@ -56,10 +59,12 @@ function search(){
 if(weatherData.ready) {
 
   return (
+  
     <div className="Weather">
-      <div className="App">
+      <div className=" justify-content-center align-items-center">
         <center>
-          <div className="card">
+        
+        <div className="card">
             <div className="wrapper">
 
 <Flag flag={weatherData.flag} alt={weatherData.alt} link={weatherData.link} />
@@ -88,13 +93,6 @@ if(weatherData.ready) {
                       id="search-city"
                     ></input>
 
-                    <button
-                      type="button"
-                      className="column but2"
-                      id="current-location"
-                    >
-                      current
-                    </button>
                   </div>
                 </form>
               </div>
@@ -102,12 +100,13 @@ if(weatherData.ready) {
 <Footer />
             </div>
           </div>
+          
         </center>
       </div>
     </div>
   );
 } else { 
- search();
+ searchByCity();
 
   return "Loading...";
 }

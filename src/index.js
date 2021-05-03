@@ -6,7 +6,11 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div     style={{
+        position: 'absolute', left: '60%', top: '40%',
+        transform: 'translate(-60%, -40%)'
+    }}
+>
       <Weather defaultCity="Berlin" />
     </div>
   );

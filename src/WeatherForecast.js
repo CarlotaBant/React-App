@@ -44,7 +44,6 @@ let part = `current,minutely,hourly,alerts`
 let lat = props.coordinates.lat;
 let lon = props.coordinates.lon;
 let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${apiKey}&units=metric`
-console.log (apiUrl);
 axios.get(apiUrl).then(handleResponse);
 
 return null;
