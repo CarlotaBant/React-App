@@ -81,7 +81,7 @@ if(weatherData.ready) {
                     type="search"
                     placeholder=" Pick a city..."
                     className="form-control"
-                    autoFocus="on"
+                    autoFocus="off"
                     onChange={handleCityChange}
                   />
 

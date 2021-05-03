@@ -5,36 +5,37 @@ import "./App.css";
 export default function WeatherInfo(props) {
    return (
    <div>
+      <div className="row description">
+        {props.data.description}
+      </div>
+      <div className="row description">
+
+      </div>
       <div className="row" id="other-info">
+
                 <div className="column" id="parameters">
-                  <ul className="parameters">
-                    <li className="row param description">Today:</li>
-                    <li className="row param max">Max:</li>
-                    <li className="row param max">Min:</li>
-                    <li className="row param windSpeed">Wind speed:</li>
-                    <li className="row param humidity">Humidity:</li>
-                  </ul>
+                    <ul className="parameters">
+                        <li className="row param maxMin">Range:</li>
+                        <li className="row param windSpeed">Wind speed:</li>
+                        <li className="row param humidity">Humidity:</li>
+                    </ul>
                 </div>
 
                 <div className="column current-data">
                   <ul className="information">
-                    <li className="capitalized-text row info description" id="description">
-                      {props.data.description}
-                    </li>
-                    <li className="row info c-max-min" id="max">
-                      {props.data.max_temp}°
-                    </li>
-                    <li className="row info c-min-min" id="min">
-                      {props.data.min_temp}°
+                    <li className="row info maxMin" id="wind">
+                      {props.data.min_temp} to {props.data.max_temp}°
                     </li>
                     <li className="row info windSpeed" id="wind">
-                      {props.data.wind} km/h
+                        {Math.round(props.data.wind)} km/h
                     </li>
                     <li className="row info humidity" id="hum">
-                      {props.data.humidity}%
+                       {props.data.humidity}%
                     </li>
+                    
                   </ul>
                 </div>
+
               </div>
 
    </div>

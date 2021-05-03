@@ -1,22 +1,18 @@
 body {
   background-image: url(https://static.tumblr.com/glziqhp/07plo83j2/c34zt.jpg);
-  margin: 0px 0px 0px 0px;
-  padding: 10px;
-  text-shadow: rgba(116, 126, 106, 0.6) 0.1px 0.1px 5px;
+  background-position: center;
+  text-shadow: rgba(116, 126, 106, 0.5) 0.1px 0.1px 5px;
 }
 
 .card {
   background-color: rgb(177, 182, 172);
   border: 0px solid rgb(177, 182, 172);
   border-radius: 0.4rem;
-  box-shadow: rgba(131, 99, 58, 0.6) 2px 2px 10px 1px;
+  box-shadow: rgba(131, 99, 58, 0.5) 2px 2px 10px 1px;
   height: 100%;
-  width: 420px;
-}
-
-.wrapper {
-  margin: auto;
-  width: 100%;
+  width: 400px;
+  min-width: 350px;
+  max-width: 450px;
   padding: 12px;
 }
 
@@ -34,7 +30,7 @@ body {
 #flag {
   filter: drop-shadow(rgba(131, 99, 58, 0.4) 0.5px 0.5px 3px);
   display: block;
-  margin: 10px 18px;
+  margin: 5px 18px;
   padding: 6px;
   width: 28px;
 }
@@ -51,7 +47,7 @@ body {
 #city-name {
   display: block;
   font-size: 44px;
-  padding-top: 40px;
+  padding-top: 30px;
   font: larger;
 }
 
@@ -68,28 +64,25 @@ body {
 .c-date {
   color: rgba(91, 80, 69, 0.7);
   font-size: 14px;
-  padding-top: 10px;
+  padding-top: 8px;
   padding-left: 5px;
 }
 
 .icon-temp-unit-units {
   margin: 0px;
   padding: 0px;
-  padding-bottom: -30px;
-  padding-right: 0px;
-  width: 440px;
-  max-width: 90%;
-  text-align: center;
+  max-width: 80%;
 }
 
 canvas {
   margin: 2px;
+  padding-top: 4px;
 }
 
 .c-temp {
-  font-size: 52px;
+  font-size: 51px;
   padding: 0px;
-  padding-top: 18px;
+  padding-top: 10px;
   margin: 0px;
   text-align: center;
 }
@@ -98,13 +91,37 @@ canvas {
   font-size: 18px;
   padding-top: 20px;
   margin-left: -25px;
-  width: fit-content;
   float: left;
 }
 
+.description {
+  color: rgba(91, 80, 69, 0.7);
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 6px;
+  padding-left: 0px;
+}
+
+.WeatherForecast-temperature-max {
+  color: rgba(51, 34, 17, 0.7);
+  max-width: 90%;
+}
+
+.WeatherForecast-temperature-min {
+  color: rgba(51, 34, 17, 0.3);
+  max-width: 90%;
+}
+
+.WeatherForecast-temperature-mid {
+  color: rgba(91, 80, 69, 0.5);
+  text-shadow: none;
+  max-width: 90%;
+}
+
 #other-info {
-  margin: 3px;
-  padding: 3px;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10px;
 }
 
 #parameters {
@@ -113,7 +130,7 @@ canvas {
 }
 
 .param {
-  color: rgba(51, 34, 17, 0.7);
+  color: rgba(91, 80, 69, 0.7);
   display: block;
   margin: 0px;
   text-align: right;
@@ -125,12 +142,16 @@ canvas {
 }
 
 .info {
-  color: rgba(51, 34, 17, 0.7);
+  color: rgba(91, 80, 69, 0.7);
   display: block;
   margin: 0px;
-  margin-right: 0px;
-  padding-right: 0px;
+  padding: 0px;
   text-align: left;
+}
+
+.maxMin {
+  display: block;
+  margin: 0px;
 }
 
 ul {
@@ -176,28 +197,9 @@ ul {
   max-width: 90%;
 }
 
-.WeatherForecast-temperature-max {
-  color: rgba(51, 34, 17, 0.7);
-  text-align: center;
-  max-width: 90%;
-}
-
-.WeatherForecast-temperature-min {
-  color: rgba(51, 34, 17, 0.3);
-  text-align: center;
-  max-width: 90%;
-}
-
-.WeatherForecast-temperature-mid {
-  color: rgba(63, 108, 108, 0);
-  text-align: center;
-  max-width: 90%;
-}
-
 .forecast {
   color: rgba(51, 34, 17, 0.7);
   text-align: center;
-  width: 400px;
   max-width: 99%;
 }
 
@@ -210,21 +212,6 @@ ul {
   width: 35px;
 }
 
-#minmax00 {
-  text-align: right;
-  width: max-content;
-}
-
-#minmax01,
-#minmax02,
-#minmax03,
-#minmax04,
-#minmax05 {
-  text-align: center;
-  margin: 5px;
-  width: 17.5%;
-}
-
 .form-and-buttons {
   padding: 8px;
 }
@@ -232,7 +219,7 @@ ul {
 input {
   border-color: rgb(222, 200, 200);
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 0px;
   max-width: 90%;
   width: 100px;
 }
@@ -250,7 +237,7 @@ input {
   color: white;
   display: inline;
   margin: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   padding: 4px;
   min-width: 90%;
   max-width: 90%;
@@ -265,7 +252,7 @@ form {
 
 .byLota {
   color: #f5f5f5;
-  padding-bottom: 10px;
+  padding-bottom: 6px;
   margin: 0px;
   text-align: left;
   padding-left: 15px;
