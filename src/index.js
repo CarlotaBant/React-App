@@ -7,8 +7,8 @@ import "./App.css";
 function App() {
   return (
     <div     style={{
-        position: 'absolute', left: '60%', top: '40%',
-        transform: 'translate(-60%, -40%)'
+        position: 'absolute', left: '50%', top: '35%',
+        transform: 'translate(-50%, -35%)'
     }}
 >
       <Weather defaultCity="Berlin" />
