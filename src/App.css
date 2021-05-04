@@ -35,7 +35,7 @@ body {
 #flag {
   filter: drop-shadow(rgba(131, 99, 58, 0.4) 0.5px 0.5px 3px);
   display: block;
-  margin: 5px 18px;
+  margin: 0px 12px;
   padding: 6px;
   width: 28px;
 }
@@ -51,14 +51,18 @@ body {
 
 #city-name {
   display: block;
+  margin: 0 auto;
   font-size: 44px;
-  padding-top: 35px;
+  padding-top: 20px;
+  padding-left: 28px;
   font: larger;
+  width: 100%;
 }
 
 .city {
   display: block;
-  max-width: 300px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .date {
@@ -257,7 +261,7 @@ form {
 
 .byLota {
   color: #f5f5f5;
-  padding-bottom: 6px;
+  padding-bottom: 0px;
   margin: 0px;
   text-align: left;
   padding-left: 15px;
