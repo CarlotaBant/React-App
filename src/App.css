@@ -17,7 +17,7 @@ body {
   min-width: 420px;
   max-width: 500px;
   min-height: 80%;
-  padding: 35px;
+  padding: 25px;
   height: 100%;
 }
 
@@ -184,7 +184,7 @@ ul {
 }
 
 .WeatherForecast-box {
-  margin: 0px 20px;
+  margin: 10px 10px;
 }
 
 .WeatherForecast-day {
@@ -227,8 +227,8 @@ ul {
 
 input {
   border-color: rgb(222, 200, 200);
-  margin-bottom: 10px;
-  margin-top: 0px;
+  margin-bottom: 5px;
+  margin-top: 15px;
   max-width: 90%;
   width: 100px;
 }
@@ -246,7 +246,7 @@ input {
   color: white;
   display: inline;
   margin: 8px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   padding: 4px;
   min-width: 90%;
   max-width: 90%;
@@ -256,7 +256,7 @@ input {
 form {
   margin: 5px 5px;
   padding: 5px 5px;
-  padding-top: 15px;
+  padding-top: 0px;
 }
 
 .byLota {

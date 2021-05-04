@@ -60,7 +60,10 @@ if(weatherData.ready) {
 
   return (
   
-    <div className="Weather">
+    <div className="Weather" style={{
+        position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)'
+    }}>
       <div className=" justify-content-center align-items-center">
         <center>
         
